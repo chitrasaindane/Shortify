@@ -1,0 +1,13 @@
+## Git Ignore Files ##
+
+# OS Waste File
+*.DS_Store
+
+# VSCode Waste File
+*.vscode
+
+# Environment Variables
+*.env
+
+# AWS EC2 Instance Secret Key-Value Pair
+*/key

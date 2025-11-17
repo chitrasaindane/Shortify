@@ -1,0 +1,10 @@
+## Docker Ignore Files ##
+
+# OS Waste File
+*.DS_Store
+
+# VSCode Waste File
+*.vscode
+
+# AWS EC2 Instance Secret Key-Value Pair
+*/key
