@@ -1,14 +1,16 @@
-# Use the official Nginx image as the base image
+## DockerFile: For "Nginx" Application ##
+
+# Start from the latest "nginx" base image (alpine)
 FROM nginx:alpine
 
-# Remove the default Nginx configuration file
+# Remove the default "Nginx" configuration 'file'
 RUN rm /usr/share/nginx/html/index.html
 
-# Copy the custom index.html to the Nginx web root
+# Copy the custom 'index.html' to the "Nginx" web 'root'
 COPY index.html /usr/share/nginx/html/
 
-# Expose port 80 to access the web page
+# Expose the port "80" to 'access' the web 'page'
 EXPOSE 80
 
-# Start Nginx server
+# Start the "Nginx" server
 CMD ["nginx", "-g", "daemon off;"]

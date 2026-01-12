@@ -2,36 +2,42 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"net/http"
-	"os"
 	"shortify/env"
-	"shortify/handlers"
+	"shortify/router"
 	"strings"
 )
 
+// # Server "Entry" Point #
 func main() {
+	var err error
 
-	// # Load Env Variables
+	// # Load the 'Env' variables
 	env.LoadEnv()
 
-	// # Get Port
-	port := env.GetEnv("PORT", "3000")
+	// # Get the 'Server' variables from the 'Env'
+	serverURI := env.GetEnv("SERVER_URI")
+	port := env.GetEnv("PORT")
 
-	// # Build Server URL with Port
-	serverURI := os.Getenv("SERVER_URI")
+	// # Build the server 'URI' with the 'port'
 	serverURI = strings.Replace(serverURI, "{PORT}", port, 1)
 
-	// # Routes
-	http.HandleFunc("/", handlers.RootPageURL)
-	http.HandleFunc("/shorten", handlers.ShortURLHandler)
-	http.HandleFunc("/redirect/", handlers.RedirectURLHandler)
+	// # Setup the 'Router'
+	r := router.SetupRouter()
 
-	// # Start Server
-	fmt.Printf("🚀 Server is running...\n")
-	fmt.Printf("🔗 Link : %s\n", serverURI)
-	err := http.ListenAndServe(":"+port, nil)
+	// # Allow 'CORS'
+	corsHandler := router.AllowCORS(r)
+
+	// # Start the 'server'
+	fmt.Println("🚀 Server is running...")
+	fmt.Println("🔗 Server Link:", serverURI)
+
+	listenAddress := fmt.Sprintf(":%s", port)
+
+	err = http.ListenAndServe(listenAddress, corsHandler)
 	if err != nil {
-		// # Start Server Error
-		fmt.Printf("🚫 Start Server Error : %v\n", err)
+		// # Start 'Server' Error
+		log.Fatal("🚫 Start Server Error:", err)
 	}
 }
