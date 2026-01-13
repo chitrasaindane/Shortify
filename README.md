@@ -1,4 +1,4 @@
-<!-- # "Shortify" Readme File # -->
+//<!-- # "Shortify" Readme File # -->
 # 🕸️ Welcome to Shortify - Modern URL Shortener 🕸️
 
 Shortify is a modern, full‑stack URL shortening service built with Go (backend), MongoDB (data store), Clerk (authentication), and Next.js (frontend). It's designed for rapid development and production readiness with clean APIs and a polished UI.
@@ -55,7 +55,7 @@ Prerequisites:
 ```bash
 mkdir Shortify
 cd Shortify
-git clone https://github.com/<your-github-username>/Shortify.git .
+git clone https://github.com/chitrasaindane/Shortify.git .
 ```
 
 2. Configure application settings (local & production)
