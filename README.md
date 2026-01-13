@@ -8,10 +8,10 @@ Shortify is a modern, full‑stack URL shortening service built with Go (backend
 ## 🚀 Live Deployments
 
 - 🌐 **Frontend (Vercel)**  
-  👉 https://myshortify.vercel.app
+  👉 https://myeshortify.vercel.app
 
 - ⚙️ **Backend (Render)**  
-  👉 https://shortwave.onrender.com
+  👉 https://shortrocket-dos3.onrender.com
 
 ---
 
